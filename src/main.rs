@@ -1,11 +1,28 @@
-#[link(name="hello")]
-extern{
-    fn hello_world();
-}
+//extern crate ocl;
+//use ocl::ProQue;
+
 fn main() {
-    println!("Hello, world!");
-    loop {
+    /*let src = r#"
+       __kernel void add(__global float* buffer, float scalar) {
+           buffer[get_global_id(0)] += scalar;
+       }
+   "#;
+   let pro_que = ProQue::builder()
+        .src(src)
+        .dims(1 << 20)
+        .build().unwrap();
 
-    }
+    let buffer = pro_que.create_buffer::<f32>().unwrap();
 
+    let kernel = pro_que.kernel_builder("add")
+        .arg(&buffer)
+        .arg(10.0f32)
+        .build().unwrap();
+
+    unsafe { kernel.enq().unwrap(); }
+
+    let mut vec = vec![0.0f32; buffer.len()];
+    buffer.read(&mut vec).enq().unwrap();
+
+    println!("The value at index [{}] is now '{}'!", 200007, vec[200007]);*/
 }
